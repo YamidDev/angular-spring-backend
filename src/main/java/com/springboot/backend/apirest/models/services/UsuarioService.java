@@ -3,6 +3,8 @@ package com.springboot.backend.apirest.models.services;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -19,6 +21,8 @@ import com.springboot.backend.apirest.models.entity.Usuario;
 @Service
 public class UsuarioService implements UserDetailsService{
 
+	private Logger logger = LoggerFactory.getLogger(UsuarioService.class);
+	
 	@Autowired
 	private IUsuarioDao usuarioDao;
 	@Override
@@ -27,9 +31,15 @@ public class UsuarioService implements UserDetailsService{
 		
 		Usuario usuario = usuarioDao.findByUsername(username);
 		
+		if (usuario == null) {
+			logger.error("Error en el Login: no existe el usuario '"+username+"' En el Sistema!");
+			throw new UsernameNotFoundException("Error en el Login: no existe el usuario '"+username+"' En el Sistema!");
+		}
+		
 		List<GrantedAuthority> authorities = usuario.getRoles()
 				.stream()
 				.map(role -> new SimpleGrantedAuthority(role.getNombre()))
+				.peek(authority -> logger.info("Role :" + authority.getAuthority()))
 				.collect(Collectors.toList());
 		
 		return new User(usuario.getUsername(), usuario.getPassword(), usuario.getEnabled(), true, true, true, authorities);
