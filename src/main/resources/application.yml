@@ -1,0 +1,22 @@
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: debug
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: ''
+    url: jdbc:mysql://localhost:3306/db_springboot_backend?useSSL=false&serverTimezone=America/Bogota
+    username: root
+  jackson:
+    locale: es_CO
+    time-zone: America/Bogota
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL57Dialect
+    hibernate:
+      ddl-auto: create-drop
+  servlet:
+    multipart:
+      max-file-size: 1000MB
+      max-request-size: 1000MB

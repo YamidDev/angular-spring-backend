@@ -54,8 +54,8 @@ INSERT INTO clientes (region_id, nombre, apellido,email,create_at) VALUES (1, 'l
 INSERT INTO clientes (region_id, nombre, apellido,email,create_at) VALUES (6, 'luffy','perez','luffy34333@mail.com','2019-03-27');
 
 /*creamos algunos usuarios*/
-INSERT INTO usuarios (username, password, enabled) VALUES ('yamid','$2a$10$BQTIic/3WycpYZnjZtCCcOqvCjpsYtyZsa3q20HpDPKlRXzBNiXoa',1);
-INSERT INTO usuarios (username, password, enabled) VALUES ('admin','$2a$10$xUQQEHf585VH0qxePGPhTu8u8BO4t1IKDMePJu2T0ChI7QZuGnHCq',1);
+INSERT INTO usuarios (username, password, enabled, nombre, apellido, email) VALUES ('yamid','$2a$10$BQTIic/3WycpYZnjZtCCcOqvCjpsYtyZsa3q20HpDPKlRXzBNiXoa',1,'yamid','cueto','ycueto0@misena.edu.co');
+INSERT INTO usuarios (username, password, enabled, nombre, apellido, email) VALUES ('admin','$2a$10$xUQQEHf585VH0qxePGPhTu8u8BO4t1IKDMePJu2T0ChI7QZuGnHCq',1,'admin','administrador','admin@mail.co');
 
 INSERT INTO roles (nombre) VALUES ('ROLE_USER');
 INSERT INTO roles (nombre) VALUES ('ROLE_ADMIN');
