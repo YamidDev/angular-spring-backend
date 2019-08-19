@@ -1,5 +1,3 @@
-server: 
-    port: 5000
 logging:
   level:
     org:
@@ -16,11 +14,9 @@ spring:
     time-zone: America/Bogota
   jpa:
     database-platform: org.hibernate.dialect.MySQL57Dialect
-    show-sql: true
     hibernate:
       ddl-auto: create-drop
   servlet:
     multipart:
       max-file-size: 1000MB
       max-request-size: 1000MB
-
