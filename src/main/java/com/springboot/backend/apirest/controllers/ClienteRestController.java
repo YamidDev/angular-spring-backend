@@ -235,7 +235,9 @@ public class ClienteRestController {
 
     HttpHeaders cabecera = new HttpHeaders();
 
-    cabecera.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + recurso.getFilename() + "\"");
+    assert recurso != null;
+    cabecera.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" +
+            recurso.getFilename() + "\"");
 
     return new ResponseEntity<>(recurso, cabecera, HttpStatus.OK);
   }
