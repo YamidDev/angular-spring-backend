@@ -133,4 +133,6 @@ public class Api implements Serializable {
                 ", longitude=" + longitude +
                 '}';
     }
+
+    private static final long serialVersionUID = 1L;
 }
