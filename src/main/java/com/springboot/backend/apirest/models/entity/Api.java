@@ -1,15 +1,14 @@
 package com.springboot.backend.apirest.models.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 public class Api implements Serializable {
 
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column
     private String client, codpoint, description;
@@ -21,15 +20,15 @@ public class Api implements Serializable {
     private int ratio;
 
     @Column
-    private Long latitude, longitude;
+    private float latitude, longitude;
 
     public Api(){ }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -73,53 +72,22 @@ public class Api implements Serializable {
         this.ratio = ratio;
     }
 
-    public Long getLatitude() {
+    public float getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(Long latitude) {
+    public void setLatitude(float latitude) {
         this.latitude = latitude;
     }
 
-    public Long getLongitude() {
+    public float getLongitude() {
         return longitude;
     }
 
     public void setLongitude(Long longitude) {
         this.longitude = longitude;
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Api)) return false;
-
-        Api api = (Api) o;
-
-        if (isStatus() != api.isStatus()) return false;
-        if (getRatio() != api.getRatio()) return false;
-        if (getId() != null ? !getId().equals(api.getId()) : api.getId() != null) return false;
-        if (getClient() != null ? !getClient().equals(api.getClient()) : api.getClient() != null) return false;
-        if (getCodpoint() != null ? !getCodpoint().equals(api.getCodpoint()) : api.getCodpoint() != null) return false;
-        if (getDescription() != null ? !getDescription().equals(api.getDescription()) : api.getDescription() != null)
-            return false;
-        if (getLatitude() != null ? !getLatitude().equals(api.getLatitude()) : api.getLatitude() != null) return false;
-        return getLongitude() != null ? getLongitude().equals(api.getLongitude()) : api.getLongitude() == null;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = getId() != null ? getId().hashCode() : 0;
-        result = 31 * result + (getClient() != null ? getClient().hashCode() : 0);
-        result = 31 * result + (getCodpoint() != null ? getCodpoint().hashCode() : 0);
-        result = 31 * result + (getDescription() != null ? getDescription().hashCode() : 0);
-        result = 31 * result + (isStatus() ? 1 : 0);
-        result = 31 * result + getRatio();
-        result = 31 * result + (getLatitude() != null ? getLatitude().hashCode() : 0);
-        result = 31 * result + (getLongitude() != null ? getLongitude().hashCode() : 0);
-        return result;
-    }
-
+    
     @Override
     public String toString() {
         return "Api{" +

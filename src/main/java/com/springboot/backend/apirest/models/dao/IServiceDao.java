@@ -7,5 +7,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IServiceDao extends JpaRepository<Api, String> {
-    JSONPObject save(JSONPObject jsonpobject);
 }

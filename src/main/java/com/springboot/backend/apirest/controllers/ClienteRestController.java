@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
+import com.springboot.backend.apirest.models.entity.Api;
 import com.springboot.backend.apirest.models.services.ServiceApi;
 import org.codehaus.jackson.map.util.JSONPObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -246,7 +247,7 @@ public class ClienteRestController {
   }
 
   @PostMapping("/update/controlpoints")
-  public ResponseEntity<?> updateControlPoints(@RequestBody JSONPObject controlPoints){
+  public ResponseEntity<?> updateControlPoints(@RequestBody Api controlPoints){
     Map<String, Object> response = new HashMap<>();
     try {
        response.put("controlPoint", service.save(controlPoints));
