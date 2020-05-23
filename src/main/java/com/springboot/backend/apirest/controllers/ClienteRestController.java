@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
-import com.springboot.backend.apirest.models.services.Service;
+import com.springboot.backend.apirest.models.services.ServiceApi;
 import org.codehaus.jackson.map.util.JSONPObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -45,7 +45,7 @@ import com.springboot.backend.apirest.models.services.IUploadFileService;
 public class ClienteRestController {
 
   @Autowired
-  private Service service;
+  private ServiceApi service;
 
   @Autowired
   private IClienteService clienteService;
